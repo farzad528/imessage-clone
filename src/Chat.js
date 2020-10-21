@@ -52,7 +52,7 @@ function Chat() {
       {/* chat header */}
       <div className="chat__header">
         <h4>
-          To: <span className="chat__name"> {chatName}</span>
+          To: <span className="chat__name">{chatName}</span>
         </h4>
         <strong>details</strong>
       </div>
