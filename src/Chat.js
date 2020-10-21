@@ -8,6 +8,7 @@ import Message from "./Message";
 import db from "./firebase";
 import firebase from "firebase";
 import { selectUser } from "./features/userSlice";
+import FlipMove from "react-flip-move"
 
 function Chat() {
   const user = useSelector(selectUser);
@@ -40,7 +41,7 @@ function Chat() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       message: input,
       uid: user.uid,
-      phpto: user.photo,
+      photo: user.photo,
       email: user.email,
       displayName: user.displayName,
     });
@@ -58,14 +59,16 @@ function Chat() {
       </div>
 
       <div className="chat__messages">
-        {messages.map(({ id, data }) => (
-          <Message key={id} contents={data} />
-        ))}
+        <FlipMove>
+          {messages.map(({ id, data }) => (
+            <Message key={id} contents={data} />
+          ))}
+        </FlipMove>
       </div>
       <div className="chat__input">
         <form>
           <input
-            value={input}
+            
             onChange={(e) => setInput(e.target.value)}
             placeholder="iMessage"
             type="text"

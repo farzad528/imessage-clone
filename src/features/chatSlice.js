@@ -11,9 +11,6 @@ export const chatSlice = createSlice({
       state.chatId = action.payload.chatId;
       state.chatName = action.payload.chatName;
     },
-    logout: (state) => {
-      state.chat = null;
-    },
   },
 });
 
