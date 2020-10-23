@@ -8,7 +8,7 @@ import Message from "./Message";
 import db from "./firebase";
 import firebase from "firebase";
 import { selectUser } from "./features/userSlice";
-import FlipMove from "react-flip-move"
+import FlipMove from "react-flip-move";
 
 function Chat() {
   const user = useSelector(selectUser);
@@ -68,12 +68,16 @@ function Chat() {
       <div className="chat__input">
         <form>
           <input
-            value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="iMessage"
             type="text"
           />
-          <button onClick={sendMessage} onclick="document.getElementById('myInput').value = ''">Send Message</button>
+          <button
+            onClick={sendMessage}
+            onclick="document.getElementById('myInput').value = ''"
+          >
+            Send Message
+          </button>
         </form>
         <IconButton>
           <MicNone className="chat__mic" />
