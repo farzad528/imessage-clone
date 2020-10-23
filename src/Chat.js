@@ -22,7 +22,7 @@ function Chat() {
       db.collection("chats")
         .doc(chatId)
         .collection("messages")
-        .orderBy("timestamp", "desc")
+        .orderBy("timestamp", "asc")
         .onSnapshot((snapshot) =>
           setMessages(
             snapshot.docs.map((doc) => ({
@@ -68,12 +68,12 @@ function Chat() {
       <div className="chat__input">
         <form>
           <input
-            
+            value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="iMessage"
             type="text"
           />
-          <button onClick={sendMessage}>Send Message</button>
+          <button onClick={sendMessage} onclick="document.getElementById('myInput').value = ''">Send Message</button>
         </form>
         <IconButton>
           <MicNone className="chat__mic" />
